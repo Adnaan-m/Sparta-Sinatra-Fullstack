@@ -1,0 +1,22 @@
+<h1>Index Page</h1>
+
+<table class="table">
+  <thead>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Capital</th>
+    <th>Place of Interest</th>
+    <th>Country</th>
+  </thead>
+  <tbody>
+    <% @cities.each do |city| %>
+      <tr>
+        <td><%= city.id %></td>
+        <td><a href="/cities/<%= city.id %>"><%= city.name %></a></td>
+        <td><%= city.capital %></td>
+        <td><%= city.place_of_interest %></td>
+        <td><a href="/countries/<%= city.country_id %>"><%= city.country %></a></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,22 @@
+<h1>Index Page</h1>
+
+<table class="table">
+  <thead>
+    <th>Name</th>
+    <th>Continent</th>
+    <th>Main Language</th>
+    <th>Population(million)</th>
+    <th>Cities</th>
+  </thead>
+  <tbody>
+    <% @countries.each do |country| %>
+      <tr>
+        <td><a href="/countries/<%= country.id %>"><%= country.name %></a></td>
+        <td> <%= country.continent %></td>
+        <td><%= country.main_language %></td>
+        <td><%= country.population %></td>
+        <td><%= country.cities %>  </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

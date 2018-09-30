@@ -1,0 +1,24 @@
+<form action="/countries/<%= @country.id %>" method="POST">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" placeholder="Name" name="name" value="<%= @country.name %>">
+  </div>
+  <div class="form-group">
+    <label for="last_name">Continent</label>
+    <input type="text" class="form-control" placeholder="Continent" name="continent" value="<%= @country.continent %>">
+  </div>
+  <div class="form-group">
+    <label for="main_language">Main Language</label>
+    <input type="text" class="form-control"  name="main_language" value="<%= @country.main_language %>" placeholder="Main Language">
+  </div>
+  <div class="form-group">
+    <label for="nationality">Population</label>
+    <input type="text" class="form-control" placeholder="Population" name="population" value="<%= @country.population %>">
+  </div>
+
+  <button type="submit" class="btn btn-default" value="PUT">Submit</button>
+
+  <% if (@country.id != '') %>
+    <input type="hidden" name="_method" value="PUT">
+  <% end %>
+</form>
