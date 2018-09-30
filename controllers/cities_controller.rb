@@ -13,7 +13,7 @@ class CitiesController < Sinatra::Base
   # INDEX
   get '/cities' do
     @title = "Index Page"
-    @cities = City.all_with_country
+    @cities = City.all
 
     erb :'cities/index'
   end
@@ -24,7 +24,7 @@ class CitiesController < Sinatra::Base
   # SHOW
   get '/cities/:id' do
     id = params[:id].to_i
-    @city = City.find_with_country id
+    @city = City.find id
 
     erb :'cities/show'
   end

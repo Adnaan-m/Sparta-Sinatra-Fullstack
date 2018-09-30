@@ -31,7 +31,7 @@ class Country
     countries
 
   end
-# ///////////
+
   def self.find id
     conn = self.open_connection
     sql = "SELECT * FROM countries WHERE id=#{id}"

@@ -24,7 +24,7 @@ class City
   def self.all
 
     conn = self.open_conection
-    sql = "SELECT * FROM cities ORDER BY id"
+    sql = "SELECT cities.name, cities.capital, cities.place_of_interest, countries.name AS country  FROM cities JOIN countries ON cities.country_id = countries.id"
     results = conn.exec(sql)
 
     cities = results.map do |city|
@@ -32,38 +32,12 @@ class City
     end
     cities
 
-  end
-
-  def self.all_with_country
-    conn = self.open_conection
-    sql = "SELECT cities.id, cities.name, cities.capital, cities.place_of_interest, cities.country_id, countries.id, countries.name, countries.continent FROM cities JOIN countries ON cities.country_id = countries.id"
-    results = conn.exec(sql)
-
-    cities = results.map do |city|
-      self.hydrate city
-    end
-
-    cities
   end
 
   def self.find id
 
     conn = self.open_conection
     sql = "SELECT * FROM cities WHERE id=#{id}"
-
-    results = conn.exec(sql)
-
-    city = self.hydrate results[0]
-
-    city
-
-  end
-
-  def self.find_with_country id
-
-    conn = self.open_conection
-
-    sql = "SELECT cities.id, cities.name, cities.capital, cities.place_of_interest, cities.country_id, countries.id, countries.name, countries.continent FROM countries JOIN cities ON cities.country_id = countries.id WHERE countries.id=#{id}"
 
     results = conn.exec(sql)
 
@@ -87,6 +61,8 @@ class City
     city.capital = city_data['capital']
     city.place_of_interest = city_data['place_of_interest']
     city.country_id = city_data['country_id']
+    city.country = [city_data['country']]
+
 
 
     city
