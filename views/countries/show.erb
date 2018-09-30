@@ -1,0 +1,10 @@
+<small><a href="/countries">Back</a></small>
+<small><a href="/countries/<%= @country.id %>/edit">Edit</a></small>
+<h1><%= @country.name %> </h1>
+<h3><%= @country.continent %></h3>
+<h3> <%= @country.main_language %></h3>
+<h4><%= @country.population %></h4>
+<form class="" action="/countries/<%= @country.id %>" method="post">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete" style="background:none;border:none;color:red">
+</form>

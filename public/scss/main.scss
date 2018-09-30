@@ -1,0 +1,5 @@
+// sass --watch (file path from scss to css ie => public/scss/main.scss):(file path for css => public/css/main.css)
+@import 'layout/global';
+@import 'layout/navbar';
+@import 'components/forms';
+@import 'utilities/buttons';

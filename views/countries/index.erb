@@ -1,0 +1,23 @@
+<h1>Countries</h1>
+<p>Ever wondered where to visit on holiday? OR even where to move house? This website shows key information that could aid your decision, whether it be the population or the language they speak. If you can't see a country you'd recommend, why not add it onto the list with ur input tool! <a href="http://localhost:9292/countries/new">Click Here</a> to add information or click on the 'new country' button on the top of the page.</p>
+<br><br>
+<table class="table">
+  <thead>
+    <th>Name</th>
+    <th>Continent</th>
+    <th>Main Language</th>
+    <th>Population(million)</th>
+    <th>Cities</th>
+  </thead>
+  <tbody>
+    <% @countries.each do |country| %>
+    <tr>
+      <td><a href="/countries/<%= country.id %>"><%= country.name %></a></td>
+      <td> <%= country.continent %></td>
+      <td><%= country.main_language %></td>
+      <td><%= country.population %></td>
+      <td><%= country.cities %>  </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

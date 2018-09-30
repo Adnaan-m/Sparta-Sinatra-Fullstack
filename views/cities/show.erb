@@ -1,0 +1,12 @@
+<small><a href="/cities">Back</a></small>
+<small><a href="/cities/<%= @city.id %>/edit">Edit</a></small>
+<h1>Show Page for <%= @city.name %></h1>
+<h3>Capital? <%= @city.capital %></h3>
+<h3><% @city.place_of_interest %></h3>
+
+<h5><a href="/countries/<%= @city.country_id %>"><%= @city.country %></a></h5>
+
+<form class="" action="/cities/<%= @city.id %>" method="post">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete" style="background:none;border:none;color:red">
+</form>
